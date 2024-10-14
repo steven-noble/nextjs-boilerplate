@@ -1,41 +1,61 @@
 import React from 'react';
 
-import './button.css';
+type ButtonProps = {
+  label: string; // Text for the button
+  onClick: () => void; // Click handler
+  type?: 'button' | 'submit' | 'reset'; // Button type (optional)
+  disabled?: boolean; // Disable the button (optional)
+  variant?: 'primary' | 'secondary' | 'outline'; // Styling variant (optional)
+  ariaLabel?: string; // Aria label for accessibility (optional)
+  size?: 'small' | 'medium' | 'large'; // Size of the button (optional)
+};
 
-export interface ButtonProps {
-  /** Is this the principal call to action on the page? */
-  primary?: boolean;
-  /** What background color to use */
-  backgroundColor?: string;
-  /** How large should the button be? */
-  size?: 'small' | 'medium' | 'large';
-  /** Button contents */
-  label: string;
-  /** Optional click handler */
-  onClick?: () => void;
-}
-
-/** Primary UI component for user interaction */
-export const Button = ({
-  primary = false,
-  size = 'medium',
-  backgroundColor,
+const Button: React.FC<ButtonProps> = ({
   label,
-  ...props
-}: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+  onClick,
+  type = 'button',
+  disabled = false,
+  variant = 'primary',
+  ariaLabel,
+  size = 'medium',
+}) => {
+  const getVariantClasses = () => {
+    switch (variant) {
+      case 'primary':
+        return 'bg-blue-500 text-white hover:bg-blue-600';
+      case 'secondary':
+        return 'bg-gray-500 text-white hover:bg-gray-600';
+      case 'outline':
+        return 'border border-blue-500 text-blue-500 hover:bg-blue-100';
+      default:
+        return '';
+    }
+  };
+
+  const getSizeClasses = () => {
+    switch (size) {
+      case 'small':
+        return 'px-2 py-1 text-sm';
+      case 'medium':
+        return 'px-4 py-2 text-base';
+      case 'large':
+        return 'px-6 py-3 text-lg';
+      default:
+        return '';
+    }
+  };
+
   return (
     <button
-      type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-      {...props}
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+      aria-label={ariaLabel || label} // Ensuring an accessible name is always provided
+      className={`rounded ${getVariantClasses()} ${getSizeClasses()} focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50`}
     >
       {label}
-      <style jsx>{`
-        button {
-          background-color: ${backgroundColor};
-        }
-      `}</style>
     </button>
   );
 };
+
+export default Button;
