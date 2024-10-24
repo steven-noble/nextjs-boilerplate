@@ -1,0 +1,28 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Developers/Hooks/useUserMedia" />
+
+# useUserMedia
+
+The useUserMedia hook is a custom React hook designed to request access to the user's media devices (like a camera and microphone) and return a media stream. It leverages the navigator.mediaDevices.getUserMedia() API to access media input.
+
+```
+import React, { useEffect, useRef } from 'react';
+import { useUserMedia } from './useUserMedia';
+
+const VideoComponent = () => {
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const mediaStream = useUserMedia({ video: true, audio: false });
+
+    useEffect(() => {
+        if (videoRef.current && mediaStream) {
+            videoRef.current.srcObject = mediaStream;
+        }
+    }, [mediaStream]);
+
+    return <video ref={videoRef} autoPlay />;
+};
+
+export default VideoComponent;
+
+```

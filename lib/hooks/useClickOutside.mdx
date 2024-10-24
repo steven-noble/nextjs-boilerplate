@@ -1,0 +1,45 @@
+import { Meta } from '@storybook/addon-docs'
+
+<Meta
+    title="Developers/Hooks/useClickOutside"
+    parameters={{
+        tag: {
+            color: 'rgb(186, 117, 6)',
+            background: 'rgb(255, 248, 226)',
+            title: '2.0',
+        },
+    }}
+/>
+
+# useClickOutside
+
+useClickOutside allows detection of clicks outside of specified element. It is usually used with modals and dropdowns to close overlay when user clicks outside.
+
+useClickOutside hook accepts 2 arguments:
+
+**handler** – function that will be called on outside click
+
+**events** – optional list of events that indicate outside click
+
+Hook returns React ref object that should be passed to element on which outside clicks should be captured.
+
+By default useClickOutside listens to mousedown and touchstart events, you can change these events by passing an array of events as second argument.
+
+```
+useClickOutside(handler, events)
+```
+
+## Example usage
+```
+import { useClickOutside } from '@hooks/useClickOutside'
+
+const [showDropdown, setShowDropdown] = useState(false)
+
+const clickRef = useRef<any>()
+
+const onClickOutside = () => {
+    setShowDropdown(false)
+}
+
+useClickOutside(clickRef, onClickOutside)
+```

@@ -1,0 +1,24 @@
+import { Meta } from '@storybook/addon-docs'
+
+<Meta title="Developers/Hooks/usePageVisibility" />
+
+# usePageVisibility (WIP)
+
+The usePageVisibility hook is a custom React hook designed to track whether the current webpage is visible or hidden. It listens for changes in the visibility of the browser tab or window and updates its state accordingly. This is particularly useful for optimizing app behavior based on whether the user is actively viewing the page, such as pausing videos, stopping animations, or reducing resource usage when the page is hidden.
+
+```
+import React from 'react';
+import { usePageVisibility } from './usePageVisibility';
+
+const PageVisibilityExample = () => {
+    const isVisible = usePageVisibility();
+
+    return (
+        <div>
+            <h1>{isVisible ? 'Page is visible' : 'Page is hidden'}</h1>
+        </div>
+    );
+};
+
+export default PageVisibilityExample;
+```

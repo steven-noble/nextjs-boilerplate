@@ -1,0 +1,24 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Developers/Hooks/useWindowFocusHandler" />
+
+# useWindowFocusHandler
+
+The WindowFocusHandler component is a React functional component that listens for focus and blur events on the window.
+
+```
+import React from 'react';
+import WindowFocusHandler from '@lib/hooks/useWindowFocusHandler';
+
+const App: React.FC = () => {
+    return (
+        <div>
+            <WindowFocusHandler />
+            <h1>Welcome to My Application</h1>
+            <p>Interact with the window to see focus and blur events in the console.</p>
+        </div>
+    );
+};
+
+export default App;
+```

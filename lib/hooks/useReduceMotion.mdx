@@ -1,0 +1,15 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Developers/Hooks/useReduceMotion" />
+
+# useReduceMotion
+
+```
+import useReducedMotion from "@hooks/useReducedMotion";
+import { AnimatedDiv } from "../somewhere";
+
+export const MyExampleComponent = () => {
+  const stopMotion = useReducedMotion();
+  return <AnimatedDiv pause={stopMotion} />;
+};
+```

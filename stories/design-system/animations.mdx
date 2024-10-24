@@ -1,5 +1,25 @@
-import { Meta } from '@storybook/addon-docs/blocks'
+import { Meta } from "@storybook/addon-docs/blocks";
 
 <Meta title="Design System/Animations" />
 
-Site Animations
+# Animations
+
+Animations are applied as CSS classes to elements.
+
+## Usage
+
+The class of the animation you want to use should be added to the element by default.
+The class `a-animate` should be added to the element when you want the class to
+run, either immediately or when the element scrolls into the viewport
+(See [Animate on Scroll](#animate-on-scroll)).
+
+## Available animations
+
+`.fade-in-up`
+
+`.fade-in-down`
+
+## Animate on scroll
+
+For how to activate or persist an animation on scroll, see the
+[useIntersectionObserver hook](/story/hooks-useintersectionobserver--page)

@@ -1,0 +1,20 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Developers/Hooks/useLocalStorage" />
+
+# useLocalStorage
+
+```
+import useLocalStorage from '@hooks/useLocalStorage'
+
+const [name, setName] = useLocalStorage('name', 'Bob');
+
+<div>
+    <input
+    type="text"
+    placeholder="Enter your name"
+    value={name}
+    onChange={e => setName(e.target.value)}
+    />
+</div>
+```

@@ -1,0 +1,18 @@
+import { Meta } from '@storybook/addon-docs'
+
+<Meta
+    title="Developers/Hooks/useNotification"
+/>
+
+# useNotification (WIP)
+
+```
+const { notify, close } = useNotification('Notification title', {
+    body: 'Notification body',
+    onClick: () => console.log('Notification clicked'),
+    onClose: () => console.log('Notification closed'),
+});
+
+<button onClick={notify}>Show Notification</button>
+<button onClick={close}>Close Notification</button>
+```

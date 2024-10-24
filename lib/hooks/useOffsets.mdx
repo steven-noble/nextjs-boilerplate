@@ -1,0 +1,21 @@
+import { Meta } from '@storybook/addon-docs'
+
+<Meta
+    title="Developers/Hooks/useOffsets"
+/>
+
+# useOffsets (WIP)
+
+```
+import { useOffsets } from './useOffsets';
+
+const vWidth = 800;  // viewport width
+const vHeight = 600; // viewport height
+const cWidth = 300;  // content width
+const cHeight = 200; // content height
+
+const { x, y } = useOffsets(vWidth, vHeight, cWidth, cHeight);
+
+<p>Offset X: {x}</p>
+<p>Offset Y: {y}</p>
+```

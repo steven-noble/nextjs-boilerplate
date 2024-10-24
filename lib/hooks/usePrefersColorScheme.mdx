@@ -1,0 +1,26 @@
+import { Meta } from '@storybook/addon-docs'
+
+<Meta title="Developers/Hooks/usePrefersColorScheme" />
+
+# usePrefersColorScheme (WIP)
+
+The usePageVisibility hook is a custom React hook designed to track whether the current webpage is visible or hidden. It listens for changes in the visibility of the browser tab or window and updates its state accordingly. This is particularly useful for optimizing app behavior based on whether the user is actively viewing the page, such as pausing videos, stopping animations, or reducing resource usage when the page is hidden.
+
+```
+import React from 'react';
+import usePrefersColorScheme from '@lib/hooks/usePrefersColorScheme';
+
+const App: React.FC = () => {
+    const colorScheme = usePrefersColorScheme();
+
+    return (
+        <div style={{ background: colorScheme === 'dark' ? '#333' : '#FFF', color: colorScheme === 'dark' ? '#FFF' : '#000' }}>
+            <h1>Preferred Color Scheme</h1>
+            <p>Your preferred color scheme is: <strong>{colorScheme}</strong></p>
+        </div>
+    );
+};
+
+export default App;
+
+```

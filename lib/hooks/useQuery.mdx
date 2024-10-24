@@ -1,0 +1,66 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Developers/Hooks/useQuery" />
+
+# useQuery
+
+```
+useQuery(api, method, body)
+```
+
+## Example usage
+
+```
+import useQuery from '@hooks/useQuery'
+
+interface User {
+  id: number;
+  name: string;
+}
+
+const MyComponent = () => {
+  const { loading, data, error } = useQuery<User[]>('/users', 'GET');
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+
+  return (
+    <ul>
+      {data?.map(user => (
+        <li key={user.id}>{user.name}</li>
+      ))}
+    </ul>
+  );
+};
+```
+
+### Without a body (GET request)
+
+```
+interface User {
+  id: number;
+  name: string;
+}
+
+const { loading, data, error } = useQuery<User[]>('/users', 'GET');
+```
+
+### With a body (POST request)
+
+```
+interface CreateUserRequest {
+  name: string;
+  email: string;
+}
+
+interface CreateUserResponse {
+  id: number;
+  name: string;
+  email: string;
+}
+
+const { loading, data, error } = useQuery<CreateUserResponse, CreateUserRequest>('/users', 'POST', {
+  name: 'John Doe',
+  email: 'john@example.com'
+});
+```
