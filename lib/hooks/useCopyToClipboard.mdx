@@ -1,0 +1,41 @@
+import { Meta } from '@storybook/addon-docs'
+
+<Meta title="Developers/Hooks/useCopyToClipboard" />
+
+# useCopyToClipboard
+
+Copies the given text to the clipboard.
+
+Use the copyToClipboard snippet to copy the text to clipboard.
+
+Use the useState() hook to initialize the copied variable.
+
+Use the useCallback() hook to create a callback for the copyToClipboard method.
+
+Use the useEffect() hook to reset the copied state variable if the text changes.
+
+Return the copied state variable and the copy callback.
+
+```
+const [copied, setCopy] = useCopyToClipboard('Lorem ipsum');
+
+<button onClick={setCopy}>Click to copy</button>
+```
+
+```
+import { useCopyToClipboard } from './path/to/useCopyToClipboard';
+
+const CopyExample = () => {
+    const [copied, copy] = useCopyToClipboard('Hello, World!');
+
+    return (
+        <>
+            <button onClick={copy}>
+                {copied ? 'Copied!' : 'Copy to Clipboard'}
+            </button>
+        </>
+    );
+};
+
+export default CopyExample;
+```
