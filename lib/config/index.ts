@@ -1,5 +1,5 @@
 const config = {
-    baseURL: "https://www.eventogy.com/api/"
+    baseURL: "https://example.com"
 };
 
 export default config;
