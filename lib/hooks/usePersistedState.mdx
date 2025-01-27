@@ -1,0 +1,11 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Developers/Hooks/usePersistedState" />
+
+# usePersistedState
+
+`usePersistedState` provides a multi-instance, multi-tab/browser shared and persistent state.
+
+## Usage
+
+`use-persisted-state` is not a hook itself, but is a factory that accepts a storage `key` and an optional storage provider (default = `localStorage`) and returns a hook that you can use as a direct replacement for `useState`.

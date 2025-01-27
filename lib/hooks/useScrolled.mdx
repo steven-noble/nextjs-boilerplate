@@ -1,0 +1,52 @@
+import { Meta } from '@storybook/addon-docs'
+
+<Meta title="Developers/Hooks/useScrolled" />
+
+# useScrolled
+
+`useScrolled` is a custom React hook that determines whether the user has scrolled down the page. It's useful for building dynamic UI elements that react to scroll behavior, such as sticky headers, back-to-top buttons, or animations triggered on scroll.
+
+## Parameters
+
+This hook does not take any parameters.
+
+## Return Value
+
+`isScrolled` (boolean)
+- `true` if the page is scrolled beyond a predefined threshold (e.g., 100px).
+- `false` if the page is at the top.
+
+## Best Practices
+
+- Use this hook in components where scroll state directly impacts the UI.
+- Combine with throttle or debounce for performance optimization if handling intensive scroll-based logic.
+
+## Limitations
+
+- The hook assumes it's used in a browser environment. Ensure you're checking for server-side rendering (SSR) when using it in universal apps like Next.js.
+
+## Examples
+
+### Basic Example
+
+```
+import useScrolled from '@lib/hooks/useScrolled'
+
+const isScrolled = useScrolled()
+```
+
+### Component Example
+
+```
+import useScrolled from '@lib/hooks/useScrolled';
+
+const MyComponent = () => {
+    const isScrolled = useScrolled();
+
+    return (
+        <header className={isScrolled ? 'scrolled' : ''}>
+            This header changes style on scroll.
+        </header>
+    );
+};
+```

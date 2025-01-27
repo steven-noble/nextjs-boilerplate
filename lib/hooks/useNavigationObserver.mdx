@@ -1,0 +1,19 @@
+import { Meta } from '@storybook/addon-docs'
+
+<Meta title="Developers/Hooks/useNavigationObserver" />
+
+# useNavigationObserver
+
+```
+const [stopNavigation, setStopNavigation] = useState(true)
+
+useNavigationObserver({
+    shouldStopNavigation: stopNavigation,
+    onNavigate: (path) => {
+        if (confirm('Exit?')) { // Add condition here
+            setStopNavigation(false)
+            router.push(path)
+        }
+    },
+})
+```
